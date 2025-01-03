@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Lista de terceros</h4>
+      <a routerLink="/tercero/create" class="btn btn-success">Crear nuevo tercero</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>Departamento</th>
+        <th>Municipio</th>
+        <th colspan="2">Identificacion</th>
+        <th>Nombres</th>
+        <th>Tipo Tercero</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let tercero of terceros">
+        <td>{{ tercero.departamento }}</td>
+        <td>{{ tercero.ciudad }}</td>
+        <td>{{ tercero.tipo_identificacion }}</td>
+        <td>{{ tercero.numero_identificacion }}</td>
+        <td>{{ tercero.nombre1 }} {{ tercero.nombre2 }}</td>
+        <td>{{ tercero.tipo_tercero }}</td>
+        <td>
+          <a href="#" [routerLink]="['/tercero/', 'edit', tercero.id  ]" class="btn btn-primary">Editar</a>
+          <button type="button" (click)="deleteTercero(tercero.id)" class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </table>
+ </section>

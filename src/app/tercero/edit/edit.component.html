@@ -1,0 +1,105 @@
+
+<div class="container">
+  
+    <div class="d-flex justify-content-between">
+      <h4>Editar Tercero</h4>
+      <a href="#" routerLink="/tercero/index" class="btn btn-primaryt">Regresar</a>
+    </div>
+​
+    <hr>
+​
+    <form [formGroup]="form" (ngSubmit)="submit()" >
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Tipo Identificación:</label>
+              <select formControlName="tipo_identificacion_id" [(ngModel)]="tercero[0].tipo_identificacion_id" id="tipo_identificacion_id" type="text" class="form-control">
+                <option *ngFor="let ti of tipoIdentificacion; let i = index" value="{{ ti.id }}">{{ ti.nombre }}</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Numero Identificación:</label>
+              <input  formControlName="numero_identificacion" [(ngModel)]="tercero[0].numero_identificacion" id="numero_identificacion" type="text" class="form-control" disabled>
+              <div *ngIf="f.numero_identificacion.touched && f.numero_identificacion.invalid" class="alert alert-danger">
+                  <div *ngIf="f.numero_identificacion.errors.required">El numero de identificacion es requerido.</div>
+                  <div *ngIf="f.numero_identificacion.errors.pattern">El numero de identificacion no tiene caracteres corrctos.</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="title">Tipo Tercero:</label>
+            <select formControlName="tipo_tercero_id" [(ngModel)]="tercero[0].tipo_tercero_id" id="tipo_tercero_id" type="text" class="form-control">
+                <option *ngFor="let tt of tipoTercero; let i = index" value="{{ tt.id }}">{{ tt.nombre }}</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Primer Nombre:</label>
+              <input  formControlName="nombre1" [(ngModel)]="tercero[0].nombre1" id="nombre1" type="text" class="form-control">
+              <div *ngIf="f.nombre1.touched && f.nombre1.invalid" class="alert alert-danger">
+                  <div *ngIf="f.nombre1.errors.required">El primer nombre es requerido.</div>
+                  <div *ngIf="f.nombre1.errors.pattern">El primer nombre  no tiene caracteres corrctos.</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Segundo Nombre:</label>
+              <input  formControlName="nombre2" [(ngModel)]="tercero[0].nombre2" id="nombre2" type="text" class="form-control">
+              <div *ngIf="f.nombre2.touched && f.nombre2.invalid" class="alert alert-danger">
+                  <div *ngIf="f.nombre2.errors.required">El segundo nombre es requerido.</div>
+                  <div *ngIf="f.nombre2.errors.pattern">El segundo nombre  no tiene caracteres corrctos.</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Primer Apellido:</label>
+              <input  formControlName="apellido1" [(ngModel)]="tercero[0].apellido1" id="apellido1" type="text" class="form-control">
+              <div *ngIf="f.apellido1.touched && f.apellido1.invalid" class="alert alert-danger">
+                  <div *ngIf="f.apellido1.errors.required">El primer apellido es requerido.</div>
+                  <div *ngIf="f.apellido1.errors.pattern">El primer apellido  no tiene caracteres corrctos.</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+              <label for="title">Segundo Apellido:</label>
+              <input  formControlName="apellido2" [(ngModel)]="tercero[0].apellido2" id="apellido2" type="text" class="form-control">
+              <div *ngIf="f.apellido2.touched && f.apellido2.invalid" class="alert alert-danger">
+                  <div *ngIf="f.apellido2.errors.required">El segundo apellido es requerido.</div>
+                  <div *ngIf="f.apellido2.errors.pattern">El segundo apellido  no tiene caracteres corrctos.</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="title">Departamento:</label>
+            <select formControlName="departamento_id" [(ngModel)]="tercero[0].departamento_id" id="departamento_id" type="text" class="form-control">
+                <option *ngFor="let dep of departamentos; let i = index" value="{{ dep.id }}">{{ dep.nombre }}</option>                
+            </select>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="title">Municipio:</label>
+            <select formControlName="idmunicipio_id" [(ngModel)]="tercero[0].idmunicipio_id"  id="idmunicipio_id" type="text" class="form-control">
+                <option *ngFor="let ciu of ciudades; let i = index" value="{{ ciu.id }}">{{ ciu.nombre }}</option>                
+            </select>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="title">Tipo Contribuyente:</label>
+            <select formControlName="tipo_contribuyente_id" [(ngModel)]="tercero[0].tipo_contribuyente_id" id="tipo_contribuyente_id" type="text" class="form-control">
+                <option *ngFor="let tc of tiposContribuyentes; let i = index" value="{{ tc.id }}">{{ tc.nombre }}</option>
+            </select>
+          </div>
+      </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Actualizar</button>
+    </form>
+</div>
